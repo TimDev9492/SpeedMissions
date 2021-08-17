@@ -1,0 +1,18 @@
+name: SpeedMission
+version: ${project.version}
+main: me.timwastaken.speedmission.SpeedMission
+api-version: 1.16
+authors: [ TimWasTaken ]
+commands:
+  start:
+    description: Starts the game
+    aliases: [go, startgame]
+  skip:
+    description: Skips active objective
+    aliases: [next, new]
+  gametime:
+    description: Manipulates minigame time
+    aliases: [time]
+  score:
+    descriptio: Adds the ability to tweak player scores
+    aliases: [points]
