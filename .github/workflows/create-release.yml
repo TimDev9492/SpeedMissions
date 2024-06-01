@@ -1,0 +1,15 @@
+name: Testing xml_grep
+
+on:
+  workflow_dispatch
+
+jobs:
+  greeting_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set variables
+        run: |
+          VER=$(xml_grep 'project.version' pom.xml)
+          echo "version=$VER" >> $GITHUB_ENV
+      - name: "Print value from env variable"
+        run: echo "Version is $version"
