@@ -20,6 +20,7 @@ jobs:
         run: |
           VER=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)
           NAME=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.name -q -DforceStdout)
+          echo "plugin_version=$VER" >> $GITHUB_ENV
           echo "plugin_jar=$NAME-$VER.jar" >> $GITHUB_ENV
       - name: Build plugin jar
         run: mvn package
@@ -28,4 +29,5 @@ jobs:
         # uses: softprops/action-gh-release@69320dbe05506a9a39fc8ae11030b214ec2d1f87
         uses: softprops/action-gh-release@v2.0.5
         with:
-          files: target/{{ env.plugin_version }
+          tag_name: ${{ env.plugin_version }}
+          files: target/${{ env.plugin_jar }
