@@ -6,12 +6,13 @@
 
     <groupId>me.TimWasTaken</groupId>
     <artifactId>SpeedMissions</artifactId>
-    <version>1.1</version>
+    <version>0.0.1-${minecraft.target.version}</version>
     <packaging>jar</packaging>
 
     <name>SpeedMissions</name>
 
     <properties>
+        <minecraft.target.version>1.20.6</minecraft.target.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -67,7 +68,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.20.6-R0.1-SNAPSHOT</version>
+            <version>${minecraft.target.version}-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
