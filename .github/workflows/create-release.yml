@@ -1,4 +1,4 @@
-name: Testing xml_grep
+name: Create release
 
 on:
   workflow_dispatch
@@ -9,11 +9,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.5
-      - name: Install mvn
+      - name: Install maven
         run: sudo apt-get install -y maven
       - name: Set variables
         run: |
           VER=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)
-          echo "version=$VER" >> $GITHUB_ENV
-      - name: "Print value from env variable"
-        run: echo "Version is $version"
+          NAME=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.name -q -DforceStdout)
+          echo "plugin_jar=$NAME-$VER.jar" >> $GITHUB_ENV
+      - name: Build plugin jar
+        run: mvn package
+      - name: Create github release
+        # You may pin to the exact commit or the version.
+        # uses: softprops/action-gh-release@69320dbe05506a9a39fc8ae11030b214ec2d1f87
+        uses: softprops/action-gh-release@v2.0.5
+        with:
+          files: target/{{ env.plugin_version }
