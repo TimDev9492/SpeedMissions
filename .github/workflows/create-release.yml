@@ -4,9 +4,11 @@ on:
   workflow_dispatch
 
 jobs:
-  greeting_job:
+  print_version:
     runs-on: ubuntu-latest
     steps:
+      - name: Install xml_grep
+        run: sudo apt-get install -y xml-twig-tools
       - name: Set variables
         run: |
           VER=$(xml_grep 'project.version' pom.xml)
