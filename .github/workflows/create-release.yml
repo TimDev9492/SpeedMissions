@@ -7,6 +7,8 @@ jobs:
   print_version:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.5
       - name: Install xml_grep
         run: sudo apt-get install -y xml-twig-tools
       - name: Set variables
