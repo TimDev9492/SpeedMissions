@@ -1,7 +1,9 @@
 package me.timwastaken.speedmission;
 
 import me.timwastaken.speedmission.inferfaces.ObjectiveType;
-import org.apache.commons.lang.time.DurationFormatUtils;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -223,7 +225,7 @@ public class GameManager {
     }
 
     public static void showHotbarTitle(Player p, String text) {
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "title " + p.getName() + " actionbar {\"color\":\"gold\",\"text\":\"" + text + "\"}");
+        p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new ComponentBuilder(text).color(ChatColor.GOLD.asBungee()).build());
     }
 
     public static Location LocationXY(Location loc) {

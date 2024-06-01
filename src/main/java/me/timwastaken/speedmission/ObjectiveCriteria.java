@@ -1,8 +1,8 @@
 package me.timwastaken.speedmission;
 
-import javafx.scene.paint.Material;
 import me.timwastaken.speedmission.inferfaces.ClutchType;
 import org.bukkit.Effect;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.advancement.Advancement;
 import org.bukkit.event.entity.EntityDamageEvent;
