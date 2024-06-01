@@ -30,4 +30,4 @@ jobs:
         uses: softprops/action-gh-release@v2.0.5
         with:
           tag_name: ${{ env.plugin_version }}
-          files: target/${{ env.plugin_jar }
+          files: target/${{ env.plugin_jar }}
