@@ -11,6 +11,10 @@ jobs:
         uses: actions/checkout@v4.1.5
       - name: Install maven
         run: sudo apt-get install -y maven
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.2.1
+        with:
+          java-version: 21
       - name: Set variables
         run: |
           VER=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)
