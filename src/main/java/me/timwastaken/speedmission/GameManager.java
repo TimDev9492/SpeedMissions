@@ -225,7 +225,7 @@ public class GameManager {
     }
 
     public static void showHotbarTitle(Player p, String text) {
-        p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new ComponentBuilder(text).color(ChatColor.GOLD.asBungee()).build());
+        p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new ComponentBuilder(text).color(net.md_5.bungee.api.ChatColor.GOLD).create());
     }
 
     public static Location LocationXY(Location loc) {
